@@ -1,0 +1,17 @@
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IntelliJ
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# H2 Database
+*.mv.db
+*.trace.db
+
+# Environment
+.env
