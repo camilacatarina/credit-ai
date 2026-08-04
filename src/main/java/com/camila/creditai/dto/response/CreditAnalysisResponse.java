@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.List;
 
 import java.time.LocalDateTime;
 
@@ -24,4 +25,6 @@ public class CreditAnalysisResponse {
     private Double debtIncomeRatio;
     private String message;
     private LocalDateTime analyzedAt;
+    private List<String> reasons;
+    private List<String> recommendations;
 }
