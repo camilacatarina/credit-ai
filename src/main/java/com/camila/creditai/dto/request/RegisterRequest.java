@@ -2,6 +2,7 @@ package com.camila.creditai.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
@@ -14,6 +15,8 @@ public class RegisterRequest {
 
     @NotBlank(message = "Senha é obrigatória")
     @Size(min = 8, message = "Senha deve ter no mínimo 8 caracteres")
+    @Pattern(regexp = "^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$",
+            message = "A senha deve ter no mínimo 8 caracteres, conter pelo menos uma letra maiúscula, um número e um caractere especial")
     private String password;
 
     @NotBlank(message = "Email é obrigatório")

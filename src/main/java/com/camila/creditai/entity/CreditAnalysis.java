@@ -6,6 +6,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import com.camila.creditai.enums.IncomeType;
 
 @Entity
 @Table(name = "credit_analysis")
@@ -34,6 +35,9 @@ public class CreditAnalysis {
 
     @Column(nullable = false)
     private Integer employmentMonths;
+
+    @Enumerated(EnumType.STRING)
+    private IncomeType incomeType;
 
     @Column(nullable = false)
     private Integer age;
