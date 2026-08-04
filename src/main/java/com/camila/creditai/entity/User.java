@@ -1,5 +1,6 @@
 package com.camila.creditai.entity;
 
+import com.camila.creditai.enums.Role;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -25,6 +26,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Enumerated(EnumType.STRING) // <-- Importante: Guarda "USER" em vez do número 0
     @Column(nullable = false)
-    private String role;
+    private Role role;
 }
