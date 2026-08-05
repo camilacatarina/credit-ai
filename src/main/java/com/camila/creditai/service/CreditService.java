@@ -10,17 +10,24 @@ import com.camila.creditai.repository.CreditAnalysisRepository;
 import com.camila.creditai.util.CpfUtils;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import lombok.extern.slf4j.Slf4j;
 import java.util.ArrayList;
 import java.util.List;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class CreditService {
 
     private final CreditAnalysisRepository repository;
+    @Cacheable(value = "creditAnalysis", key = "#request.cpf", unless = "#result == null")
+    @CacheEvict(value = "creditAnalysis", key = "#request.cpf", beforeInvocation = true)
 
     public CreditAnalysisResponse analyzeCredit(CreditAnalysisRequest request) {
+        log.info("⚙️ Calculando score do CPF " + CpfUtils.mask(request.getCpf()) + " (CACHE NÃO ENCONTRADO)");
+
         // Cálculo do índice de endividamento
         double debtIncomeRatio = calculateDebtIncomeRatio(
                 request.getMonthlyIncome(),
