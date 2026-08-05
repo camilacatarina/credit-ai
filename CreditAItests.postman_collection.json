@@ -1,0 +1,172 @@
+{
+  "info": {
+    "_postman_id": "69ef0974-9127-4fd2-bda2-6bbb3f6a961e",
+    "name": "CreditAItests",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57136901",
+    "_collection_link": "https://go.postman.co/collection/57136901-69ef0974-9127-4fd2-bda2-6bbb3f6a961e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"camila\",\r\n  \"password\": \"Teste@123\",\r\n  \"email\": \"camila@email.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/register",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"cpf\": \"12345678901\",\r\n    \"monthlyIncome\": 6000.00,\r\n    \"monthlyDebt\": 1200.00,\r\n    \"incomeType\": \"CLT\",\r\n    \"employmentMonths\": 36,\r\n    \"age\": 28\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/credit/analyze",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "credit",
+            "analyze"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - under analysis",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"cpf\": \"12345678904\",\r\n    \"monthlyIncome\": 5000.00,\r\n    \"monthlyDebt\": 2250.00,\r\n    \"incomeType\": \"CLT\",\r\n    \"employmentMonths\": 18,\r\n    \"age\": 24\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/credit/analyze",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "credit",
+            "analyze"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze - Reprobate",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"cpf\": \"65787643202\",\r\n    \"monthlyIncome\": 3000.00,\r\n    \"monthlyDebt\": 2000.00,\r\n    \"incomeType\": \"AUTONOMO\",\r\n    \"employmentMonths\": 4,\r\n    \"age\": 20\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/credit/analyze",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "credit",
+            "analyze"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"username\": \"camila_teste\",\r\n  \"password\": \"Teste@123\",\r\n  \"email\": \"camila.2003@email.com\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/auth/login",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "auth",
+            "login"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
